@@ -1,8 +1,3 @@
-// Each time this function is called a GameObject
-// is create based on the arguments
-// In JavaScript you can consider everything an Object
-// including functions
-
 var canvas = document.getElementById("game");
 
 var context = canvas.getContext("2d");
