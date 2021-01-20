@@ -6,6 +6,25 @@ var image = new Image();
 image.src = "./img/bikeclock.jpg";
 
 var url = document.location.href;
+var gamerTag;
+
+function splitFunction()
+{
+    var result = url.split("=");
+    gamerTag = result[1];
+}
+
+splitFunction();
+
+var string1 = "Scraic";
+
+var string2 = gamerTag;
+
+var username = string1.concat(string2);
+
+context.font = "20px Arial";
+
+
 
 function GameObject(name, img, health) 
 {
@@ -114,7 +133,7 @@ function update()
                 
                 
     }
-    console.log("url");
+    console.update("url");
 }
 
 
@@ -142,6 +161,7 @@ function draw()
     //}
     animate();
     context.drawImage(image, x, y, 800, 800, 610, 610, 200, 200);
+context.filltext(username, 600, 20);
 }
 var frames = 6;
 
@@ -243,3 +263,4 @@ function movementSelection()
     "value": "Pistol crossbow"
   }
 ];*/
+
