@@ -15,8 +15,8 @@
         function ValidateForm()
         {
             var x = document.forms["helloform"]["name"].value;
-            var y = document.forms["helloform"]["pass"].value;
-            if(x=="",y=="")
+            
+            if(x=="")
             {
                 alert("I need to know your name");
                 return false;
@@ -41,8 +41,8 @@
 
 
 <form name="helloform" action="." onsubmit="return ValidateForm()" method="get">
-    My Name: <input type="text" name="name">
-    Pass: <input type="text" name="pass">
+    Username: <input type="text" name="name">
+    
 
     <input type="submit" value="Submit">
 </form>
