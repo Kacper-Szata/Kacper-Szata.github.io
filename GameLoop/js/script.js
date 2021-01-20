@@ -160,7 +160,7 @@ function draw()
     //}
     animate();
     context.drawImage(image, x, y, 800, 800, 610, 610, 200, 200);
-context.filltext(username, 600, 20);
+context.fillText(username, 600, 20);
 }
 var frames = 6;
 
