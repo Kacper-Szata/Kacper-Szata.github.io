@@ -16,7 +16,7 @@ function splitFunction()
 
 splitFunction();
 
-var string1 = "Scraic : ";
+var string1 = "Scraic: ";
 
 var string2 = gamerTag;
 
