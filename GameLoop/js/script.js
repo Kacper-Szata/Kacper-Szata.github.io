@@ -5,6 +5,8 @@ var context = canvas.getContext("2d");
 var image = new Image();
 image.src = "./img/bikeclock.jpg";
 
+var url = document.location.href;
+
 function GameObject(name, img, health) 
 {
     this.name = name;
@@ -110,7 +112,9 @@ function update()
                     console.log("Left");
                 }
                 
+                
     }
+    console.log("url");
 }
 
 

@@ -10,23 +10,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="HTML5 GameLoop Template">
     <meta name="author" content="UI Programming">
+    <script>
 
+        function ValidateForm()
+        {
+            var x = document.forms["helloform"]["name"].value;
+            var y = document.forms["helloform"]["pass"].value;
+            if(x=="",y=="")
+            {
+                alert("I need to know your name");
+                return false;
+            }
+            else
+            {
+                alert("Hello there " + document.forms["helloform"]["name"].value);
+            }
+        }
+    
+    </script>
     <!--StyleSheet-->
     <link rel="stylesheet" href="./css/style.css">
     <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
-
+    
 </head>
 
 <body>
   
 <form action="https://kacper-szata.github.io/GameLoop/" method="GET" target="_blank">
             
-<input type="text" name="username" value="Enter Username">
-            
-<input type="password" name="password" value="Enter password">
 
-<button type="reset">Reset</button>
-<button type="submit">Log in</button>
+
+<form name="helloform" action="." onsubmit="return ValidateForm()" method="get">
+    My Name: <input type="text" name="name">
+    Pass: <input type="text" name="pass">
+
+    <input type="submit" value="Submit">
+</form>
 
 </body>
 
