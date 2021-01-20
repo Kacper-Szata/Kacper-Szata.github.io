@@ -133,7 +133,6 @@ function update()
                 
                 
     }
-    console.update("url");
 }
 
 
