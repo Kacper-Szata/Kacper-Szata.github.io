@@ -1,0 +1,23 @@
+.surprise-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #ffce00;
+    border-radius: 5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .surprise-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .selected-option {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }

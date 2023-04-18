@@ -1,0 +1,29 @@
+.joy-button {
+    background-color: #f9bc60;
+    border: none;
+    color: #fff;
+    padding: 12px 24px;
+    font-size: 18px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  }
+  
+  .joy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  }
+  
+  .joy-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(249, 188, 96, 0.5);
+  }
+
+  .selected-option {
+    background-color: #f8f8f8;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
