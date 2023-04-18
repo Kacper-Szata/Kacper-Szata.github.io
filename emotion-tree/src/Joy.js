@@ -1,9 +1,100 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './Joy.css';
+import Lottie from 'lottie-web';
+import animationData1 from './lottie.json';
+import animationData2 from './medium.json';
+import animationData3 from './big.json';
+import animationData4 from './test1.json';
+import animationData5 from './75.json';
+import animationData6 from './100.json';
 
 
 function Joy() {
   const [selectedOption, setSelectedOption] = useState('');
+  const animationContainer = useRef(null);
+  const loadingBarContainer = useRef(null);
+
+  useEffect(() => {
+    let animData;
+    switch (selectedOption) {
+      case 'scared':
+      case 'terrified':
+      case 'insecure':
+      case 'nervous':
+      case 'horrified':
+        animData = animationData2;
+        break;
+      case 'frightened':
+      case 'helpless':
+      case 'panicked':
+      case 'hysterical':
+      case 'inferior':
+      case 'inadequate':
+      case 'worried':
+      case 'anxious':
+      case 'mortified':
+      case 'dreadful':
+        animData = animationData3;
+        break;
+      default:
+        animData = animationData1;
+        break;
+    }
+    const anim = Lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: "svg",
+      loop: true,
+      autoplay:true,
+      animationData: animData,
+    });
+
+    return () => {
+      anim.destroy();
+    };
+  },
+  
+  );
+
+  useEffect(() => {
+    let animData2;
+    switch (selectedOption) {
+      case 'scared':
+      case 'terrified':
+      case 'insecure':
+      case 'nervous':
+      case 'horrified':
+        animData2 = animationData5;
+        break;
+      case 'frightened':
+      case 'helpless':
+      case 'panicked':
+      case 'hysterical':
+      case 'inferior':
+      case 'inadequate':
+      case 'worried':
+      case 'anxious':
+      case 'mortified':
+      case 'dreadful':
+        animData2 = animationData6;
+        break;
+      default:
+        animData2 = animationData4;
+        break;
+    }
+    const anim2 = Lottie.loadAnimation({
+      container: loadingBarContainer.current,
+      renderer: "svg",
+      loop: true,
+      autoplay:true,
+      animationData: animData2,
+    });
+
+    return () => {
+      anim2.destroy();
+    };
+  },
+  
+  );
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -28,7 +119,7 @@ const renderBackButton = () => {
     switch (selectedOption) {
       case 'euphoric':
         return (
-          <div>
+          <div className="joy2-button-container">
             <button onClick={() => handleOptionSelect('jubilant')}className="joy-button">
             Jubilant
             </button>
@@ -39,7 +130,7 @@ const renderBackButton = () => {
         );
         case 'excited':
             return (
-              <div>
+              <div className="joy2-button-container">
                 <button onClick={() => handleOptionSelect('zealous')}className="joy-button">
                   Zealous
                 </button>
@@ -50,7 +141,7 @@ const renderBackButton = () => {
             );
       case 'optimistic':
         return (
-          <div>
+          <div className="joy2-button-container">
             <button onClick={() => handleOptionSelect('hopeful')}className="joy-button">
               Hopeful
             </button>
@@ -61,7 +152,7 @@ const renderBackButton = () => {
         );
         case 'proud':
         return (
-          <div>
+          <div className="joy2-button-container">
             <button onClick={() => handleOptionSelect('illustrous')}className="joy-button">
              Illustrous
             </button>
@@ -72,7 +163,7 @@ const renderBackButton = () => {
         );
         case 'cheerful':
         return (
-          <div>
+          <div className="joy2-button-container">
             <button onClick={() => handleOptionSelect('playful')}className="joy-button">
             Playful
             </button>
@@ -83,7 +174,7 @@ const renderBackButton = () => {
         );
         case 'happy':
         return (
-          <div>
+          <div className="joy2-button-container">
             <button onClick={() => handleOptionSelect('delighted')}className="joy-button">
             Delighted
             </button>
@@ -94,7 +185,7 @@ const renderBackButton = () => {
         );
         case 'content':
             return (
-              <div>
+              <div className="joy2-button-container">
                 <button onClick={() => handleOptionSelect('pleased')}className="joy-button">
                 Pleased
                 </button>
@@ -105,7 +196,7 @@ const renderBackButton = () => {
             );
             case 'peaceful':
                 return (
-                  <div>
+                  <div className="joy2-button-container">
                     <button onClick={() => handleOptionSelect('serene')}className="joy-button">
                     Serene
                     </button>
@@ -131,7 +222,7 @@ const renderBackButton = () => {
       case 'serene':
       case 'tranquil':
         return (
-          <div>
+          <div className="selected-option-container">
             <div className='selected-option'>
             <h2>You have selected "{selectedOption}"</h2>
             <p>This is the end of the road, there's no more choices from here.</p>
@@ -141,7 +232,7 @@ const renderBackButton = () => {
         );
       default:
         return (
-          <div>
+          <div className="joy-button-container">
             <button onClick={() => handleOptionSelect('euphoric')}className="joy-button">
             Euphoric
             </button>
@@ -176,6 +267,8 @@ const renderBackButton = () => {
       <h1>Joy</h1>
       {renderOptions()}
       {renderBackButton()}
+      <div className='animation-container'  ref={animationContainer}></div>
+    <div className='loadingBar-container' ref={loadingBarContainer}></div>
     </div>
   );
 }

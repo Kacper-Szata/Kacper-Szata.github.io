@@ -1,8 +1,98 @@
-import React, { useState } from 'react';
-import './Sadness.css';
+import React, { useEffect, useState, useRef } from 'react';
+import './Sadness.css';import Lottie from 'lottie-web';
+import animationData1 from './lottie.json';
+import animationData2 from './medium.json';
+import animationData3 from './big.json';
+import animationData4 from './test1.json';
+import animationData5 from './75.json';
+import animationData6 from './100.json';
 
 function Sadness() {
   const [selectedOption, setSelectedOption] = useState('');
+  const animationContainer = useRef(null);
+  const loadingBarContainer = useRef(null);
+  
+  useEffect(() => {
+    let animData;
+    switch (selectedOption) {
+      case 'scared':
+      case 'terrified':
+      case 'insecure':
+      case 'nervous':
+      case 'horrified':
+        animData = animationData2;
+        break;
+      case 'frightened':
+      case 'helpless':
+      case 'panicked':
+      case 'hysterical':
+      case 'inferior':
+      case 'inadequate':
+      case 'worried':
+      case 'anxious':
+      case 'mortified':
+      case 'dreadful':
+        animData = animationData3;
+        break;
+      default:
+        animData = animationData1;
+        break;
+    }
+    const anim = Lottie.loadAnimation({
+      container: animationContainer.current,
+      renderer: "svg",
+      loop: true,
+      autoplay:true,
+      animationData: animData,
+    });
+
+    return () => {
+      anim.destroy();
+    };
+  },
+  
+  );
+
+  useEffect(() => {
+    let animData2;
+    switch (selectedOption) {
+      case 'scared':
+      case 'terrified':
+      case 'insecure':
+      case 'nervous':
+      case 'horrified':
+        animData2 = animationData5;
+        break;
+      case 'frightened':
+      case 'helpless':
+      case 'panicked':
+      case 'hysterical':
+      case 'inferior':
+      case 'inadequate':
+      case 'worried':
+      case 'anxious':
+      case 'mortified':
+      case 'dreadful':
+        animData2 = animationData6;
+        break;
+      default:
+        animData2 = animationData4;
+        break;
+    }
+    const anim2 = Lottie.loadAnimation({
+      container: loadingBarContainer.current,
+      renderer: "svg",
+      loop: true,
+      autoplay:true,
+      animationData: animData2,
+    });
+
+    return () => {
+      anim2.destroy();
+    };
+  },
+  
+  );
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -27,7 +117,7 @@ const renderBackButton = () => {
     switch (selectedOption) {
       case 'gloomy':
         return (
-          <div>
+          <div className="sadness2-button-container">
             <button onClick={() => handleOptionSelect('hopeless')}className="sadness-button">
             Hopeless
             </button>
@@ -38,7 +128,7 @@ const renderBackButton = () => {
         );
         case 'hurt':
             return (
-              <div>
+              <div className="sadness2-button-container">
                 <button onClick={() => handleOptionSelect('agonized')}className="sadness-button">
                   Agonized
                 </button>
@@ -49,7 +139,7 @@ const renderBackButton = () => {
             );
       case 'unhappy':
         return (
-          <div>
+          <div className="sadness2-button-container">
             <button onClick={() => handleOptionSelect('miserable')}className="sadness-button">
               Miserable
             </button>
@@ -60,7 +150,7 @@ const renderBackButton = () => {
         );
         case 'disappointed':
         return (
-          <div>
+          <div className="sadness2-button-container">
             <button onClick={() => handleOptionSelect('dismayed')}className="sadness-button">
              Dismayed
             </button>
@@ -71,7 +161,7 @@ const renderBackButton = () => {
         );
         case 'shameful':
         return (
-          <div>
+          <div className="sadness2-button-container">
             <button onClick={() => handleOptionSelect('regretful')}className="sadness-button">
             Regretful
             </button>
@@ -82,7 +172,7 @@ const renderBackButton = () => {
         );
         case 'lonely':
         return (
-          <div>
+          <div className="sadness2-button-container">
             <button onClick={() => handleOptionSelect('isolated')}className="sadness-button">
             Isolated
             </button>
@@ -104,7 +194,7 @@ const renderBackButton = () => {
       case 'isolated':
       case 'neglected':
         return (
-          <div>
+          <div className="selected-option-container">
             <div className='selected-option'>
             <h2>You have selected "{selectedOption}"</h2>
             <p>This is the end of the road, there's no more choices from here.</p>
@@ -114,7 +204,7 @@ const renderBackButton = () => {
         );
       default:
         return (
-          <div>
+          <div className="sadness-button-container">
             <button onClick={() => handleOptionSelect('gloomy')}className="sadness-button">
             Gloomy
             </button>
@@ -143,6 +233,8 @@ const renderBackButton = () => {
       <h1>Sadness</h1>
       {renderOptions()}
       {renderBackButton()}
+      <div className='animation-container'  ref={animationContainer}></div>
+    <div className='loadingBar-container' ref={loadingBarContainer}></div>
     </div>
   );
 }

@@ -1,23 +1,161 @@
 .surprise-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    color: #fff;
-    background-color: #ffce00;
-    border-radius: 5px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  background-color: #ff0000;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 20px;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+}
+
+.selected-option-container {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: calc(50% - 5px); /* set width to 50% minus half the margin */
+  float: left;
+  margin-left: 0;
+  left:0;
+  position:absolute;
+}
+
+.animation-container {
+  position: absolute;
+  height: 500px;
+  margin: 0 10px 0 0;
+  border: 1px solid black;
+  float: left;
+  right: 80px;
+  width: 500px;
+  top: 200px;
+}
+
+.surprise-button-container {
+  float: left;
+  border: 1px solid black;
+  margin-top: 50px;
+  top:400px;
+  right:700px;
+  position: absolute;
+}
+
+.surprise2-button-container {
+  float: left;
+  border: 1px solid black;
+  margin-top: 50px;
+  top:400px;
+  right:850px;
+  position: absolute;
+}
+
+.loadingBar-container {
+  position: absolute;
+  bottom: 0;
+  width: 500px;
+  height: 100px;
+  border: 1px solid black;
+  bottom: 65px;
+  left: 650px;
+}
+
+.selected-option-container, .animation-container {
+  display: inline-block;
+  vertical-align: top;
+}
+
+h1{
+  font-size: 70px;
+  position: fixed;
+  top:200px;
+  right:950px;
+}
+
+/* For screens wider than 768px */
+@media only screen and (min-width: 768px) {
+
+  /* Adjust the width and margin of the selected-option-container */
+  .selected-option-container {
+    width: calc(50% - 5px); /* set width to 50% minus half the margin */
+    margin-right: 5px;
   }
   
-  .surprise-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+  /* Adjust the position of the animation-container */
+  .animation-container {
+    right: 80px;
+    top: 200px;
+  }
+  
+  /* Adjust the position of the fear-button-container and fear2-button-container */
+  .surprise-button-container {
+    top: 400px;
+    right: 700px;
+  }
+  
+  .surprise2-button-container {
+    top: 400px;
+    right: 850px;
+  }
+  
+  /* Adjust the position of the loadingBar-container */
+  .loadingBar-container {
+    width: 500px;
+    bottom: 65px;
+    left: 650px;
   }
 
-  .selected-option {
-    background-color: #f8f8f8;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 20px;
+  /* Adjust the position of the h1 element */
+  h1 {
+    font-size: 70px;
+    position: fixed;
+    top: 200px;
+    right: 950px;
   }
+}
+
+/* For screens up to 768px */
+@media only screen and (max-width: 768px) {
+
+  /* Set the width of the selected-option-container to 100% and remove margin */
+  .selected-option-container {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  /* Adjust the position of the animation-container */
+  .animation-container {
+    right: 0;
+    top: 500px;
+  }
+  
+  /* Adjust the position of the fear-button-container and fear2-button-container */
+  .surprise-button-container {
+    top: 900px;
+    right: 0;
+  }
+  
+  .surprise2-button-container {
+    top: 1000px;
+    right: 0;
+  }
+  
+  /* Adjust the position of the loadingBar-container */
+  .loadingBar-container {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+
+  /* Adjust the position of the h1 element */
+  h1 {
+    font-size: 40px;
+    position: fixed;
+    top: 100px;
+    right: 0;
+  }
+}
