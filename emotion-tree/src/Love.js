@@ -1,37 +1,33 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Love.css';
 import Lottie from 'lottie-web';
-import animationData1 from './lottie.json';
+import animationData1 from './sampling.json';
 import animationData2 from './medium.json';
 import animationData3 from './big.json';
-import animationData4 from './test1.json';
-import animationData5 from './75.json';
-import animationData6 from './100.json';
 function Love() {
   const [selectedOption, setSelectedOption] = useState('');
   const animationContainer = useRef(null);
-  const loadingBarContainer = useRef(null);
 
   useEffect(() => {
     let animData;
     switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
+      case 'grateful':
+      case 'sentimental':
+      case 'affectionate':
+      case 'romantic':
+      case 'enchanted':
         animData = animationData2;
         break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
+        case 'thankful':
+          case 'appreciative':
+          case 'nostalgic':
+          case 'tender':
+          case 'compassionate':
+          case 'warmhearted':
+          case 'enamored':
+          case 'passionate':
+          case 'rapturous':
+          case 'enthrolled':
         animData = animationData3;
         break;
       default:
@@ -41,7 +37,7 @@ function Love() {
     const anim = Lottie.loadAnimation({
       container: animationContainer.current,
       renderer: "svg",
-      loop: true,
+      loop: false,
       autoplay:true,
       animationData: animData,
     });
@@ -53,46 +49,6 @@ function Love() {
   
   );
 
-  useEffect(() => {
-    let animData2;
-    switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
-        animData2 = animationData5;
-        break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
-        animData2 = animationData6;
-        break;
-      default:
-        animData2 = animationData4;
-        break;
-    }
-    const anim2 = Lottie.loadAnimation({
-      container: loadingBarContainer.current,
-      renderer: "svg",
-      loop: true,
-      autoplay:true,
-      animationData: animData2,
-    });
-
-    return () => {
-      anim2.destroy();
-    };
-  },
-  
-  );
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -181,13 +137,32 @@ const renderBackButton = () => {
       case 'rapturous':
       case 'enthrolled':
         return (
-          <div className="selected-option-container">
-            <div className='selected-option'>
-            <h2>You have selected "{selectedOption}"</h2>
-            <p>This is the end of the road, there's no more choices from here.</p>
-            <p>Here's some random text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis lorem a purus elementum faucibus sed a purus. Nam sagittis consectetur lacus id cursus. Praesent aliquam eu odio sed euismod. Aliquam eleifend felis et sapien porttitor, quis faucibus felis aliquam. Nullam feugiat euismod ante. Sed venenatis lectus ut massa euismod, vel aliquet mi ultrices. Aliquam at aliquam magna. Morbi sagittis velit in mauris laoreet hendrerit. Nunc id augue nibh. Nulla facilisi. Sed eget congue massa. Integer vitae mi vel nunc rhoncus venenatis eget ut lacus.</p>
+          <><div className="selected-option-container">
+            <div className="selected-option">
+              <h2>You have selected "{selectedOption}"</h2>
+              <p>If you are feeling these specific emotions and you want to pursue finding out more about these specific emotions feel free to visit the following websites:</p>
+            <ul>
+              <li><a href="https://www.goodtherapy.org/blog/psychpedia/love">Click here!</a></li>
+              <li><a href="https://www.verywellmind.com/what-is-love-2795343">Click here!</a></li>
+              <li><a href="https://psychcentral.com/relationships/the-psychology-of-love">Click here!</a></li>
+              <li><a href="https://theconversation.com/what-is-love-139212">Click here!</a></li>
+
+            </ul>
             </div>
-          </div>
+            </div><div className="text-box-container">
+            <div className="text-box">
+            <h2>General Information about Love:</h2>
+            <ul>
+  <li>Love is a complex emotion that can take many forms, including romantic love, platonic love, and self-love.</li>
+  <li>It is typically characterized by feelings of warmth, affection, and connection to another person, object, or idea.</li>
+  <li>Love has both psychological and physiological effects on the body and brain, including the release of neurotransmitters such as oxytocin and dopamine.</li>
+  <li>Experiencing love can have a positive impact on mental and physical health, including reducing stress and improving mood.</li>
+  <li>There are many factors that can contribute to the experience of love, including personal experiences, cultural norms, and social expectations.</li>
+  <li>Cultivating healthy and fulfilling relationships is an important aspect of experiencing and expressing love, and can involve communication, empathy, and respect.</li>
+</ul>
+            </div>
+  
+            </div></>
         );
       default:
         return (
@@ -214,11 +189,12 @@ const renderBackButton = () => {
 
   return (
     <div>
+      <div className='love-header-container'>
       <h1>Love</h1>
       {renderOptions()}
       {renderBackButton()}
+      </div>
       <div className='animation-container'  ref={animationContainer}></div>
-      <div className='loadingBar-container' ref={loadingBarContainer}></div>
     </div>
   );
 }

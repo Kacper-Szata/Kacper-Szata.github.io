@@ -1,67 +1,79 @@
-.love-button {
-  background-color: #ff0000;
-  color: #ffffff;
+@import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans');
+.love-button,
+.love2-button {
+  background-color: #8bc34a;
+  color: #fff;
   font-size: 20px;
   padding: 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 50px;
   margin-right: 10px;
   position: relative;
-  top: 50%;
+  top: 25%;
+  left: 12%;
   transform: translateY(-50%);
   z-index: 3;
+  transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.love-button:hover,
+.love2-button:hover {
+  transform: translateY(-50%) scale(1.1);
+  background-color: #7CB342;
+}
+
+.love-button:active,
+.love2-button:active {
+  transform: translateY(-50%) scale(0.9);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .selected-option-container {
-  background-color: #f8f8f8;
   border: 1px solid #ccc;
-  border-radius: 5px;
+  border-radius: 20px;
   padding: 10px;
   margin-bottom: 20px;
-  width: calc(50% - 5px); /* set width to 50% minus half the margin */
+  width: calc(50% - 5px);
+  height: 200px; /* Replace with your desired height */
+  float: right;
+  margin-left: 0;
+  position: absolute;
+  backdrop-filter: blur(3px);
+}
+
+.text-box-container {
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 10px;
+  margin-bottom: 20px;
+  width: calc(50% - 5px);
+  height: 200px; /* Replace with your desired height */
   float: left;
   margin-left: 0;
-  left:0;
-  position:absolute;
+  position: absolute;
+  backdrop-filter: blur(3px);
 }
+
+
+
 
 .animation-container {
   position: absolute;
-  height: 500px;
-  margin: 0 10px 0 0;
-  border: 1px solid black;
-  float: left;
-  right: 80px;
-  width: 500px;
-  top: 200px;
+ 
+  
 }
 
 .love-button-container {
   float: left;
-  border: 1px solid black;
-  margin-top: 50px;
-  top:400px;
-  right:700px;
-  position: absolute;
+  margin-top: 10px;
+  position: relative;
 }
 
 .love2-button-container {
   float: left;
-  border: 1px solid black;
   margin-top: 50px;
-  top:400px;
-  right:850px;
-  position: absolute;
-}
-
-.loadingBar-container {
-  position: absolute;
-  bottom: 0;
-  width: 500px;
-  height: 100px;
-  border: 1px solid black;
-  bottom: 65px;
-  left: 650px;
+  position: relative;
 }
 
 .selected-option-container, .animation-container {
@@ -69,71 +81,128 @@
   vertical-align: top;
 }
 
-h1{
-  font-size: 70px;
-  position: fixed;
-  top:200px;
-  right:950px;
+.love-header-container {
+  position: absolute;
+  top: 5%;
+  left: 550px;
+  width: 40%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  box-sizing: border-box;
+  z-index: 999;
+
 }
 
-/* For screens wider than 768px */
-@media only screen and (min-width: 768px) {
+.love-header-container h1 {
+  
+  font-family: 'Bubblegum Sans', cursive;
+  font-size: 80px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-shadow: 0 0 10px rgb(79, 196, 250), 2px 2px 2px #000;
+  }
+  
 
-  /* Adjust the width and margin of the selected-option-container */
+
+
+@media only screen and (min-width: 768px) {
+  /*.main-container {
+    width:100%;
+    top:100%;
+    right:100%;
+    height:100%;
+  }*/
+  
+
+  .love-button{
+    top:25%;
+    left:10%;
+  }
+
+  .love2-button{
+    top:0%;
+    left:38%;
+  }
+
   .selected-option-container {
-    width: calc(50% - 5px); /* set width to 50% minus half the margin */
+    width: 80%;
+    height: 700%;
     margin-right: 5px;
+    top:200%;
+    right:80%;
   }
   
-  /* Adjust the position of the animation-container */
+  .text-box-container{
+    width: 80%;
+    height: 700%;
+    margin-right: 5px;
+    top:200%;
+    left:82%;
+  }
+  
   .animation-container {
-    right: 80px;
-    top: 200px;
+    bottom:2%;
+    right:25%;
   }
   
-  /* Adjust the position of the fear-button-container and fear2-button-container */
+ 
   .love-button-container {
-    top: 400px;
-    right: 700px;
+    top: 820%;
+    right: 50px;
+    width: 100%;
+    
   }
   
   .love2-button-container {
-    top: 400px;
-    right: 850px;
+    top: 900%;
+    left: 180px;
+    width: 100%;
   }
+  .selected-option-container p, li {
+    font-weight: bold;
+    color:rgb(88, 88, 88);
+   }
+   
+   .text-box-container li{
+     font-weight: bold;
+     color:rgb(88, 88, 88);
+   }
+ 
+   .selected-option-container h2 {
+     font-weight: bold;
+     color:rgb(88, 88, 88);
+    }
+    
+    .text-box-container h2{
+      font-weight: bold;
+      color:rgb(88, 88, 88);
+    }
   
-  /* Adjust the position of the loadingBar-container */
-  .loadingBar-container {
-    width: 500px;
-    bottom: 65px;
-    left: 650px;
-  }
-
-  /* Adjust the position of the h1 element */
-  h1 {
-    font-size: 70px;
-    position: fixed;
-    top: 200px;
-    right: 950px;
-  }
 }
 
-/* For screens up to 768px */
+
 @media only screen and (max-width: 768px) {
 
-  /* Set the width of the selected-option-container to 100% and remove margin */
+  
   .selected-option-container {
     width: 100%;
     margin-right: 0;
   }
   
-  /* Adjust the position of the animation-container */
+ 
   .animation-container {
     right: 0;
     top: 500px;
   }
   
-  /* Adjust the position of the fear-button-container and fear2-button-container */
+ 
   .love-button-container {
     top: 900px;
     right: 0;
@@ -144,18 +213,4 @@ h1{
     right: 0;
   }
   
-  /* Adjust the position of the loadingBar-container */
-  .loadingBar-container {
-    width: 100%;
-    bottom: 0;
-    left: 0;
-  }
-
-  /* Adjust the position of the h1 element */
-  h1 {
-    font-size: 40px;
-    position: fixed;
-    top: 100px;
-    right: 0;
-  }
 }

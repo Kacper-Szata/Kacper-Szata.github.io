@@ -1,38 +1,35 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Surprise.css';
 import Lottie from 'lottie-web';
-import animationData1 from './lottie.json';
+import animationData1 from './sampling.json';
 import animationData2 from './medium.json';
 import animationData3 from './big.json';
-import animationData4 from './test1.json';
-import animationData5 from './75.json';
-import animationData6 from './100.json';
+
 
 function Surprise() {
   const [selectedOption, setSelectedOption] = useState('');
   const animationContainer = useRef(null);
-  const loadingBarContainer = useRef(null);
   
   useEffect(() => {
     let animData;
     switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
+      case 'moved':
+      case 'overcome':
+      case 'amazed':
+      case 'confused':
+      case 'stunned':
         animData = animationData2;
         break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
+        case 'touched':
+          case 'stimulated':
+          case 'astounded':
+          case 'speechless':
+          case 'awe-struck':
+          case 'astonished':
+          case 'disillusioned':
+          case 'perplexed':
+          case 'shocked':
+          case 'bewildered':
         animData = animationData3;
         break;
       default:
@@ -42,7 +39,7 @@ function Surprise() {
     const anim = Lottie.loadAnimation({
       container: animationContainer.current,
       renderer: "svg",
-      loop: true,
+      loop: false,
       autoplay:true,
       animationData: animData,
     });
@@ -54,46 +51,6 @@ function Surprise() {
   
   );
 
-  useEffect(() => {
-    let animData2;
-    switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
-        animData2 = animationData5;
-        break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
-        animData2 = animationData6;
-        break;
-      default:
-        animData2 = animationData4;
-        break;
-    }
-    const anim2 = Lottie.loadAnimation({
-      container: loadingBarContainer.current,
-      renderer: "svg",
-      loop: true,
-      autoplay:true,
-      animationData: animData2,
-    });
-
-    return () => {
-      anim2.destroy();
-    };
-  },
-  
-  );
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -182,13 +139,33 @@ const renderBackButton = () => {
       case 'shocked':
       case 'bewildered':
         return (
-          <div className="selected-option-container">
-            <div className='selected-option'>
-            <h2>You have selected "{selectedOption}"</h2>
-            <p>This is the end of the road, there's no more choices from here.</p>
-            <p>Here's some random text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis lorem a purus elementum faucibus sed a purus. Nam sagittis consectetur lacus id cursus. Praesent aliquam eu odio sed euismod. Aliquam eleifend felis et sapien porttitor, quis faucibus felis aliquam. Nullam feugiat euismod ante. Sed venenatis lectus ut massa euismod, vel aliquet mi ultrices. Aliquam at aliquam magna. Morbi sagittis velit in mauris laoreet hendrerit. Nunc id augue nibh. Nulla facilisi. Sed eget congue massa. Integer vitae mi vel nunc rhoncus venenatis eget ut lacus.</p>
-          </div>
-          </div>
+          <><div className="selected-option-container">
+            <div className="selected-option">
+              <h2>You have selected "{selectedOption}"</h2>
+              <p>If you are feeling these specific emotions and you want to pursue finding out more about these specific emotions feel free to visit the following websites:</p>
+              <ul>
+              <li><a href="https://www.paulekman.com/universal-emotions/what-is-surprise/">Click here!</a></li>
+              <li><a href="https://www.psychologytoday.com/ie/blog/fulfillment-any-age/202204/the-unexplored-emotion-surprise">Click here!</a></li>
+              <li><a href="https://psychology.iresearchnet.com/social-psychology/emotions/surprise/">Click here!</a></li>
+              <li><a href="https://exploringyourmind.com/surprise-a-fleeting-and-unexpected-emotion/">Click here!</a></li>
+
+            </ul>
+            </div>
+          </div><div className="text-box-container">
+            <div className="text-box">
+              <h2>General Information about Surprise:</h2>
+              <ul>
+  <li>Surprise is an emotion that is typically triggered by unexpected events or experiences.</li>
+  <li>It is a brief and intense emotion that is characterized by feelings of astonishment, amazement, or wonder.</li>
+  <li>Surprise can be caused by both positive and negative events, such as receiving unexpected news, witnessing a surprising event, or experiencing a sudden change in circumstances.</li>
+  <li>Physiological responses to surprise include an increase in heart rate, a surge in adrenaline, and changes in facial expressions and body language.</li>
+  <li>Surprise can have both positive and negative effects on cognitive processing, memory, and decision-making.</li>
+  <li>It can also play an important role in social interactions, such as in humor, storytelling, and creative expression.</li>
+  <li>Surprise can be used as a tool for marketing, advertising, and product design, as it can capture attention and create memorable experiences for consumers.</li>
+</ul> 
+            </div>
+  
+            </div></>
         );
       default:
         return (
@@ -215,11 +192,12 @@ const renderBackButton = () => {
 
   return (
     <div>
+      <div className='fear-header-container'>
       <h1>Surprise</h1>
       {renderOptions()}
       {renderBackButton()}
+      </div>
       <div className='animation-container'  ref={animationContainer}></div>
-    <div className='loadingBar-container' ref={loadingBarContainer}></div>
     </div>
   );
 }

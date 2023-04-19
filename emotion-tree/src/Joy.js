@@ -1,39 +1,44 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Joy.css';
 import Lottie from 'lottie-web';
-import animationData1 from './lottie.json';
+import animationData1 from './sampling.json';
 import animationData2 from './medium.json';
 import animationData3 from './big.json';
-import animationData4 from './test1.json';
-import animationData5 from './75.json';
-import animationData6 from './100.json';
 
 
 function Joy() {
   const [selectedOption, setSelectedOption] = useState('');
   const animationContainer = useRef(null);
-  const loadingBarContainer = useRef(null);
 
   useEffect(() => {
     let animData;
     switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
+      case 'euphoric':
+      case 'excited':
+      case 'optimistic':
+      case 'proud':
+      case 'cheerful':
+        case 'happy':
+          case 'content':
+            case 'peaceful':
         animData = animationData2;
         break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
+        case 'jubilant':
+          case 'elated':
+          case 'zealous':
+          case 'enthusiastic':
+          case 'hopeful':
+          case 'eager':
+          case 'illustrous':
+          case 'triumphant':
+          case 'playful':
+          case 'amused':
+          case 'delighted':
+          case 'jovial':
+          case 'pleased':
+          case 'satisfied':
+          case 'serene':
+          case 'tranquil':
         animData = animationData3;
         break;
       default:
@@ -43,7 +48,7 @@ function Joy() {
     const anim = Lottie.loadAnimation({
       container: animationContainer.current,
       renderer: "svg",
-      loop: true,
+      loop: false,
       autoplay:true,
       animationData: animData,
     });
@@ -55,46 +60,7 @@ function Joy() {
   
   );
 
-  useEffect(() => {
-    let animData2;
-    switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
-        animData2 = animationData5;
-        break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
-        animData2 = animationData6;
-        break;
-      default:
-        animData2 = animationData4;
-        break;
-    }
-    const anim2 = Lottie.loadAnimation({
-      container: loadingBarContainer.current,
-      renderer: "svg",
-      loop: true,
-      autoplay:true,
-      animationData: animData2,
-    });
 
-    return () => {
-      anim2.destroy();
-    };
-  },
-  
-  );
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -222,13 +188,32 @@ const renderBackButton = () => {
       case 'serene':
       case 'tranquil':
         return (
-          <div className="selected-option-container">
-            <div className='selected-option'>
-            <h2>You have selected "{selectedOption}"</h2>
-            <p>This is the end of the road, there's no more choices from here.</p>
-            <p>Here's some random text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis lorem a purus elementum faucibus sed a purus. Nam sagittis consectetur lacus id cursus. Praesent aliquam eu odio sed euismod. Aliquam eleifend felis et sapien porttitor, quis faucibus felis aliquam. Nullam feugiat euismod ante. Sed venenatis lectus ut massa euismod, vel aliquet mi ultrices. Aliquam at aliquam magna. Morbi sagittis velit in mauris laoreet hendrerit. Nunc id augue nibh. Nulla facilisi. Sed eget congue massa. Integer vitae mi vel nunc rhoncus venenatis eget ut lacus.</p>
+          <><div className="selected-option-container">
+            <div className="selected-option">
+              <h2>You have selected "{selectedOption}"</h2>
+              <p>If you are feeling these specific emotions and you want to pursue finding out more about these specific emotions feel free to visit the following websites:</p>
+              <ul>
+              <li><a href="https://www.weforum.org/agenda/2023/03/joy-is-good-for-your-body-and-your-mind-three-ways-to-feel-it-more-often/">Click here!</a></li>
+              <li><a href="https://www.healthline.com/health/affects-of-joy">Click here!</a></li>
+              <li><a href="https://www.diffen.com/difference/Happiness_vs_Joy">Click here!</a></li>
+              <li><a href="https://dictionary.apa.org/joy">Click here!</a></li>
+
+            </ul>
             </div>
-          </div>
+          </div><div className="text-box-container">
+            <div className="text-box">
+              <h2>General Information about Joy:</h2>
+              <ul>
+  <li>Joy is a positive emotion that is often described as a feeling of happiness, elation, or delight.</li>
+  <li>It is typically triggered by positive experiences, such as achieving a goal, spending time with loved ones, or experiencing something beautiful.</li>
+  <li>Joy is a complex emotion that involves both cognitive and physiological responses, such as increased heart rate, smiling, and feelings of warmth and pleasure.</li>
+  <li>Research has shown that experiencing joy can have a range of benefits, including improved mood, enhanced creativity and problem-solving abilities, and increased resilience in the face of adversity.</li>
+  <li>There are many ways to cultivate joy in daily life, such as practicing gratitude, spending time in nature, pursuing hobbies and interests, and engaging in acts of kindness and compassion.</li>
+</ul>
+              
+            </div>
+  
+            </div></>
         );
       default:
         return (
@@ -264,11 +249,12 @@ const renderBackButton = () => {
 
   return (
     <div>
+      <div className='joy-header-container'>
       <h1>Joy</h1>
       {renderOptions()}
       {renderBackButton()}
+      </div>
       <div className='animation-container'  ref={animationContainer}></div>
-    <div className='loadingBar-container' ref={loadingBarContainer}></div>
     </div>
   );
 }

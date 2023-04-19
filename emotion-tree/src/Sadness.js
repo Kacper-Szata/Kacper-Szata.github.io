@@ -1,37 +1,37 @@
 import React, { useEffect, useState, useRef } from 'react';
-import './Sadness.css';import Lottie from 'lottie-web';
-import animationData1 from './lottie.json';
+import './Sadness.css';
+import Lottie from 'lottie-web';
+import animationData1 from './sampling.json';
 import animationData2 from './medium.json';
 import animationData3 from './big.json';
-import animationData4 from './test1.json';
-import animationData5 from './75.json';
-import animationData6 from './100.json';
 
 function Sadness() {
   const [selectedOption, setSelectedOption] = useState('');
   const animationContainer = useRef(null);
-  const loadingBarContainer = useRef(null);
   
   useEffect(() => {
     let animData;
     switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
+      case 'gloomy':
+      case 'hurt':
+      case 'unhappy':
+      case 'disappointed':
+      case 'shameful':
+      case 'lonely':
         animData = animationData2;
         break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
+      case 'hopeless':
+      case 'depressed':
+      case 'agonized':
+      case 'disturbed':
+      case 'miserable':
+      case 'disheartened':
+      case 'dismayed':
+      case 'displeased':
+      case 'regretful':
+      case 'guilty':
+      case 'isolated':
+      case 'neglected':
         animData = animationData3;
         break;
       default:
@@ -41,7 +41,7 @@ function Sadness() {
     const anim = Lottie.loadAnimation({
       container: animationContainer.current,
       renderer: "svg",
-      loop: true,
+      loop: false,
       autoplay:true,
       animationData: animData,
     });
@@ -53,46 +53,6 @@ function Sadness() {
   
   );
 
-  useEffect(() => {
-    let animData2;
-    switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
-        animData2 = animationData5;
-        break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
-        animData2 = animationData6;
-        break;
-      default:
-        animData2 = animationData4;
-        break;
-    }
-    const anim2 = Lottie.loadAnimation({
-      container: loadingBarContainer.current,
-      renderer: "svg",
-      loop: true,
-      autoplay:true,
-      animationData: animData2,
-    });
-
-    return () => {
-      anim2.destroy();
-    };
-  },
-  
-  );
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
@@ -194,13 +154,31 @@ const renderBackButton = () => {
       case 'isolated':
       case 'neglected':
         return (
-          <div className="selected-option-container">
-            <div className='selected-option'>
-            <h2>You have selected "{selectedOption}"</h2>
-            <p>This is the end of the road, there's no more choices from here.</p>
-            <p>Here's some random text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis lorem a purus elementum faucibus sed a purus. Nam sagittis consectetur lacus id cursus. Praesent aliquam eu odio sed euismod. Aliquam eleifend felis et sapien porttitor, quis faucibus felis aliquam. Nullam feugiat euismod ante. Sed venenatis lectus ut massa euismod, vel aliquet mi ultrices. Aliquam at aliquam magna. Morbi sagittis velit in mauris laoreet hendrerit. Nunc id augue nibh. Nulla facilisi. Sed eget congue massa. Integer vitae mi vel nunc rhoncus venenatis eget ut lacus.</p>
-          </div>
-          </div>
+          <><div className="selected-option-container">
+            <div className="selected-option">
+              <h2>You have selected "{selectedOption}"</h2>
+              <p>If you are feeling these specific emotions and you want to pursue finding out more about these specific emotions feel free to visit the following websites:</p>
+              <ul>
+              <li><a href="https://www.everydayhealth.com/emotional-health/all-about-sadness-what-causes-it-how-to-cope-with-it-and-when-to-get-help/">Click here!</a></li>
+              <li><a href="https://www.paulekman.com/universal-emotions/what-is-sadness/">Click here!</a></li>
+              <li><a href="https://www.berkeleywellbeing.com/sadness.html">Click here!</a></li>
+              <li><a href="https://www.verywellmind.com/sadness-is-not-depression-2330492">Click here!</a></li>
+
+            </ul>
+            </div>
+          </div><div className="text-box-container">
+            <div className="text-box">
+            <h2>General Information about Sadness:</h2>
+            <ul>
+  <li>Sadness is a natural and normal human emotion that can be triggered by a variety of situations, such as loss, disappointment, or failure.</li>
+  <li>It is typically characterized by feelings of sorrow, emptiness, and low mood, and can manifest in both physical and emotional ways, such as decreased energy, changes in appetite, and social withdrawal.</li>
+  <li>Sadness can be a healthy and appropriate response to certain situations, and can provide an opportunity for reflection and growth.</li>
+  <li>However, chronic or unmanaged sadness can lead to a range of negative consequences, including depression, anxiety, and difficulty functioning in daily life.</li>
+  <li>There are many techniques and strategies that can help individuals manage their sadness in healthier ways, such as engaging in self-care activities, talking to a trusted friend or professional, and seeking support from a community or social network.</li>
+</ul>
+            </div>
+  
+            </div></>
         );
       default:
         return (
@@ -230,11 +208,12 @@ const renderBackButton = () => {
 
   return (
     <div>
+    <div className='sadness-header-container'>
       <h1>Sadness</h1>
       {renderOptions()}
       {renderBackButton()}
+      </div>
       <div className='animation-container'  ref={animationContainer}></div>
-    <div className='loadingBar-container' ref={loadingBarContainer}></div>
     </div>
   );
 }

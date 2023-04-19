@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Bubblegum+Sans');
+body {
+  background-image: url('./background.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
 .container {
   display: flex;
   justify-content: center;
@@ -14,6 +22,23 @@
   height: 70vh;
 }
 
+.home-page h1{
+  font-family: 'Bubblegum Sans', cursive;
+  color: white;
+  text-shadow: 0 0 10px rgb(79, 196, 250), 2px 2px 2px #000;
+  position: relative;
+  font-size: 80px;
+  bottom:15%;
+}
+
+.home-page p{
+  position: relative;
+  font-size: 20px;
+  bottom:15%;
+  font-weight: bold;
+  color:rgb(88, 88, 88);
+}
+
 .title {
   font-size: 3rem;
   margin-bottom: 2rem;
@@ -21,26 +46,32 @@
 
 
 .button {
-  background-color: #5cb85c;
+  background-color: #ff8c00;
   border: none;
   color: white;
-  padding: 10px 20px;
+  padding: 20px 40px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 24px;
+  margin: 10px 5px;
   cursor: pointer;
-  border-radius: 4px;
-}
-
-.button:hover {
-  background-color: #4CAF50;
-}
-
-.button:active {
-  background-color: #3e8e41;
-}
+  border-radius: 50px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  }
+  
+  .button:hover {
+  transform: translateY(-3px);
+  background-color: #ffad33;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.2);
+  }
+  
+  .button:active {
+  transform: translateY(1px);
+  background-color: #ffa31a;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  }
 
 .button-container {
   display: flex;
@@ -49,10 +80,12 @@
   align-items: center;
   gap: 10px;
   margin-top: 20px;
+  position: relative;
+  bottom: 10%;
 }
 
 
-button.back-button {
+/*button.back-button {
   background-color: #eaeaea;
   border: none;
   color: #333;
@@ -67,7 +100,7 @@ button.back-button {
 
 button.back-button:hover {
   background-color: #ccc;
-}
+}*/
 
 
 

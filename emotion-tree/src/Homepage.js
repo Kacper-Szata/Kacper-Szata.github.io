@@ -22,7 +22,7 @@ function HomePage() {
       case 'home':
         return (
           <div className="home-page">
-            <h1>Welcome to the Emotion Tree</h1>
+            <h1>Welcome to Tree of Emotion</h1>
             <p>Let's build your emotion tree. Choose an emotion to start:</p>
             <div className="button-container">
               <button className="button" onClick={() => handleNavigation('fear')}>Fear</button>

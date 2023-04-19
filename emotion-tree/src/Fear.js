@@ -1,17 +1,13 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Fear.css';
 import Lottie from 'lottie-web';
-import animationData1 from './lottie.json';
+import animationData1 from './sampling.json';
 import animationData2 from './medium.json';
 import animationData3 from './big.json';
-import animationData4 from './test1.json';
-import animationData5 from './75.json';
-import animationData6 from './100.json';
 
 function Fear() {
   const [selectedOption, setSelectedOption] = useState('');
   const animationContainer = useRef(null);
-  const loadingBarContainer = useRef(null);
 
   useEffect(() => {
     let animData;
@@ -42,7 +38,7 @@ function Fear() {
     const anim = Lottie.loadAnimation({
       container: animationContainer.current,
       renderer: "svg",
-      loop: true,
+      loop: false,
       autoplay:true,
       animationData: animData,
     });
@@ -54,46 +50,6 @@ function Fear() {
   
   );
 
-  useEffect(() => {
-    let animData2;
-    switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
-        animData2 = animationData5;
-        break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
-        animData2 = animationData6;
-        break;
-      default:
-        animData2 = animationData4;
-        break;
-    }
-    const anim2 = Lottie.loadAnimation({
-      container: loadingBarContainer.current,
-      renderer: "svg",
-      loop: true,
-      autoplay:true,
-      animationData: animData2,
-    });
-
-    return () => {
-      anim2.destroy();
-    };
-  },
-  
-  );
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
     };
@@ -118,10 +74,10 @@ const renderOptions = () => {
     case 'scared':
       return (
         <div className="fear2-button-container">
-          <button onClick={() => handleOptionSelect('frightened')} className="fear-button">
+          <button onClick={() => handleOptionSelect('frightened')} className="fear2-button">
             Frightened
           </button>
-          <button onClick={() => handleOptionSelect('helpless')}className="fear-button">
+          <button onClick={() => handleOptionSelect('helpless')}className="fear2-button">
             Helpless
           </button>
         </div>
@@ -129,10 +85,10 @@ const renderOptions = () => {
     case 'insecure':
       return (
         <div className="fear2-button-container">
-          <button onClick={() => handleOptionSelect('inferior')}className="fear-button">
+          <button onClick={() => handleOptionSelect('inferior')}className="fear2-button">
             Inferior
           </button>
-          <button onClick={() => handleOptionSelect('inadequate')}className="fear-button">
+          <button onClick={() => handleOptionSelect('inadequate')}className="fear2-button">
             Inadequate
           </button>
         </div>
@@ -140,10 +96,10 @@ const renderOptions = () => {
     case 'terrified':
       return (
         <div className="fear2-button-container">
-          <button onClick={() => handleOptionSelect('panicked')}className="fear-button">
+          <button onClick={() => handleOptionSelect('panicked')}className="fear2-button">
             Panicked
           </button>
-          <button onClick={() => handleOptionSelect('hysterical')}className="fear-button">
+          <button onClick={() => handleOptionSelect('hysterical')}className="fear2-button">
             Hysterical
           </button>
         </div>
@@ -151,10 +107,10 @@ const renderOptions = () => {
     case 'nervous':
       return (
         <div className="fear2-button-container">
-          <button onClick={() => handleOptionSelect('worried')}className="fear-button">
+          <button onClick={() => handleOptionSelect('worried')}className="fear2-button">
             Worried
           </button>
-          <button onClick={() => handleOptionSelect('anxious')}className="fear-button">
+          <button onClick={() => handleOptionSelect('anxious')}className="fear2-button">
             Anxious
           </button>
         </div>
@@ -162,10 +118,10 @@ const renderOptions = () => {
     case 'horrified':
       return (
         <div className="fear2-button-container">
-          <button onClick={() => handleOptionSelect('mortified')}className="fear-button">
+          <button onClick={() => handleOptionSelect('mortified')}className="fear2-button">
             Mortified
           </button>
-          <button onClick={() => handleOptionSelect('dreadful')}className="fear-button">
+          <button onClick={() => handleOptionSelect('dreadful')}className="fear2-button">
             Dreadful
           </button>
         </div>
@@ -181,13 +137,34 @@ const renderOptions = () => {
     case 'mortified':
     case 'dreadful':
       return (
-        <div className="selected-option-container">
+        <><div className="selected-option-container">
           <div className="selected-option">
             <h2>You have selected "{selectedOption}"</h2>
-            <p>This is the end of the road, there's no more choices from here.</p>
-            <p>Here's some random text:blah</p>
+            <p>If you are feeling these specific emotions and you want to pursue finding out more about these specific emotions feel free to visit the following websites:</p>
+            <ul>
+              <li><a href="https://www.psychologytoday.com/us/basics/fear">Click here!</a></li>
+              <li><a href="https://www.mayoclinic.org/diseases-conditions/anxiety/symptoms-causes/syc-20350961">Click here!</a></li>
+              <li><a href="https://www.nimh.nih.gov/health/topics/anxiety-disorders">Click here!</a></li>
+              <li><a href="https://www.apa.org/topics/anxiety">Click here!</a></li>
+
+            </ul>
           </div>
-        </div>
+        </div><div className="text-box-container">
+          <div className="text-box">
+            <h2>General Information about Fear:</h2>
+            <ul>
+  <li>Fear is a natural emotion that helps humans and animals respond to threats and danger.</li>
+  <li>It is characterized by feelings of anxiety, nervousness, and apprehension.</li>
+  <li>Fear can be triggered by various factors, including perceived threats to one's safety or well-being, unfamiliar or uncomfortable situations, and past traumatic experiences.</li>
+  <li>The physical symptoms of fear may include increased heart rate, sweating, trembling, and heightened senses.</li>
+  <li>Fear can be both a helpful and a harmful emotion. In appropriate situations, it can help individuals avoid danger and take necessary precautions. However, excessive or irrational fear can interfere with daily life and lead to anxiety disorders.</li>
+  <li>Techniques like exposure therapy and cognitive-behavioral therapy can be used to help individuals overcome their fears and manage anxiety.</li>
+  <li>Fear can also be experienced in response to non-physical threats, such as fear of failure or fear of rejection.</li>
+</ul>
+
+          </div>
+
+          </div></>
       );
       
     default:
@@ -214,14 +191,15 @@ const renderOptions = () => {
 }
 
 
-  return (
-    <div>
+return (
+  <div>
+    <div className='fear-header-container'>
       <h1>Fear</h1>
       {renderOptions()}
       {renderBackButton()}
-    <div className='animation-container'  ref={animationContainer}></div>
-    <div className='loadingBar-container' ref={loadingBarContainer}></div>
     </div>
+    <div className='animation-container' ref={animationContainer}></div>
+  </div>
   );
 }
 

@@ -1,38 +1,35 @@
 import React, { useEffect, useState, useRef } from 'react';
 import './Anger.css';
 import Lottie from 'lottie-web';
-import animationData1 from './lottie.json';
+import animationData1 from './sampling.json';
 import animationData2 from './medium.json';
 import animationData3 from './big.json';
-import animationData4 from './test1.json';
-import animationData5 from './75.json';
-import animationData6 from './100.json';
 
 function Anger() {
   const [selectedOption, setSelectedOption] = useState('');
   const animationContainer = useRef(null);
-  const loadingBarContainer = useRef(null);
+ 
 
   useEffect(() => {
     let animData;
     switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
+      case 'enraged':
+      case 'exasperated':
+      case 'irritable':
+      case 'jealous':
+      case 'disgusted':
         animData = animationData2;
         break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
+        case 'hateful':
+          case 'hostile':
+          case 'agitated':
+          case 'frustrated':
+          case 'annoyed':
+          case 'aggravated':
+          case 'resentful':
+          case 'envious':
+          case 'contemptuous':
+          case 'revolted':
         animData = animationData3;
         break;
       default:
@@ -42,54 +39,13 @@ function Anger() {
     const anim = Lottie.loadAnimation({
       container: animationContainer.current,
       renderer: "svg",
-      loop: true,
+      loop: false,
       autoplay:true,
       animationData: animData,
     });
 
     return () => {
       anim.destroy();
-    };
-  },
-  
-  );
-
-  useEffect(() => {
-    let animData2;
-    switch (selectedOption) {
-      case 'scared':
-      case 'terrified':
-      case 'insecure':
-      case 'nervous':
-      case 'horrified':
-        animData2 = animationData5;
-        break;
-      case 'frightened':
-      case 'helpless':
-      case 'panicked':
-      case 'hysterical':
-      case 'inferior':
-      case 'inadequate':
-      case 'worried':
-      case 'anxious':
-      case 'mortified':
-      case 'dreadful':
-        animData2 = animationData6;
-        break;
-      default:
-        animData2 = animationData4;
-        break;
-    }
-    const anim2 = Lottie.loadAnimation({
-      container: loadingBarContainer.current,
-      renderer: "svg",
-      loop: true,
-      autoplay:true,
-      animationData: animData2,
-    });
-
-    return () => {
-      anim2.destroy();
     };
   },
   
@@ -182,13 +138,31 @@ const renderBackButton = () => {
       case 'contemptuous':
       case 'revolted':
         return (
-          <div className="selected-option-container">
-            <div className='selected-option'>
-            <h2>You have selected "{selectedOption}"</h2>
-            <p>This is the end of the road, there's no more choices from here.</p>
-            <p>Here's some random text: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis lorem a purus elementum faucibus sed a purus. Nam sagittis consectetur lacus id cursus. Praesent aliquam eu odio sed euismod. Aliquam eleifend felis et sapien porttitor, quis faucibus felis aliquam. Nullam feugiat euismod ante. Sed venenatis lectus ut massa euismod, vel aliquet mi ultrices. Aliquam at aliquam magna. Morbi sagittis velit in mauris laoreet hendrerit. Nunc id augue nibh. Nulla facilisi. Sed eget congue massa. Integer vitae mi vel nunc rhoncus venenatis eget ut lacus.</p>
+          <><div className="selected-option-container">
+            <div className="selected-option">
+              <h2>You have selected "{selectedOption}"</h2>
+              <p>If you are feeling these specific emotions and you want to pursue finding out more about these specific emotions feel free to visit the following websites:</p>
+              <ul>
+              <li><a href="https://www.psychologytoday.com/us/basics/anger">Click here!</a></li>
+              <li><a href="https://www.helpguide.org/articles/relationships-communication/anger-management.htm">Click here!</a></li>
+              <li><a href="https://www.verywellmind.com/what-is-anger-5120208">Click here!</a></li>
+              <li><a href="https://www.paulekman.com/universal-emotions/what-is-anger/">Click here!</a></li>
+
+            </ul>
             </div>
-          </div>
+          </div><div className="text-box-container">
+            <div className="text-box">
+            <h2>General Information about Joy:</h2>
+            <ul>
+  <li>Anger is a natural emotion that can be triggered by a variety of situations, such as feeling threatened, frustrated, or insulted.</li>
+  <li>It is typically characterized by feelings of intense frustration, irritation, and hostility, and can manifest in both physical and emotional ways, such as increased heart rate, muscle tension, and aggressive behavior.</li>
+  <li>Anger can be a normal and healthy response to certain situations, but it can also become problematic when it is expressed in ways that are harmful to oneself or others.</li>
+  <li>Chronic or unmanaged anger can lead to a range of negative consequences, including health problems, relationship issues, and difficulty functioning in daily life.</li>
+  <li>There are many techniques and strategies that can help individuals manage their anger in healthier ways, such as deep breathing, mindfulness, assertive communication, and problem-solving.</li>
+</ul>
+            </div>
+  
+            </div></>
         );
       default:
         return (
@@ -215,11 +189,12 @@ const renderBackButton = () => {
 
   return (
     <div>
+     <div className='anger-header-container'>
       <h1>Anger</h1>
       {renderOptions()}
       {renderBackButton()}
+      </div>
       <div className='animation-container'  ref={animationContainer}></div>
-    <div className='loadingBar-container' ref={loadingBarContainer}></div>
     </div>
   );
 }
