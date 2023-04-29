@@ -11,7 +11,7 @@ This repository has two branches:
 https://github.com/Kacper-Szata/Kacper-Szata.github.io/tree/main
 
 #### Link to gh-pages branch
-https://github.com/Kacper-Szata/Kacper-Szata.github.io/tree/main
+https://github.com/Kacper-Szata/Kacper-Szata.github.io/tree/gh-pages
 
 #### Link to where the application is hosted 
 https://kacper-szata.github.io/
